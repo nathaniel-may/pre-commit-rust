@@ -4,6 +4,7 @@
   entry: cargo fmt
   language: system
   types: [rust]
+  pass_filenames: false
 - id: cargo-check
   name: cargo check
   description: Check the package for errors.
