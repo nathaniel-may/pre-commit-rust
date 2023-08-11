@@ -19,6 +19,13 @@
   language: system
   types: [rust]
   pass_filenames: false
+- id: no-warnings
+  name: no-warnings
+  description: Build the package and error on warnings.
+  entry: cargo rustc -- -D warnings
+  language: system
+  types: [rust]
+  pass_filenames: false
 - id: clippy
   name: clippy
   description: Lint rust source files.
