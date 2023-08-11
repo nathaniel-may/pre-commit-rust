@@ -15,7 +15,7 @@
 - id: build
   name: build
   description: Build the package.
-  entry: build
+  entry: cargo build
   language: system
   types: [rust]
   pass_filenames: false
