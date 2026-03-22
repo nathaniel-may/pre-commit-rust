@@ -5,6 +5,7 @@
   language: system
   types: [rust]
   pass_filenames: false
+  stages: [commit]
 - id: cargo-check
   name: cargo check
   description: Check the package for errors.
@@ -12,6 +13,7 @@
   language: system
   types: [rust]
   pass_filenames: false
+  stages: [commit]
 - id: build
   name: build
   description: Build the package.
@@ -19,6 +21,7 @@
   language: system
   types: [rust]
   pass_filenames: false
+  stages: [push]
 - id: no-warnings
   name: no-warnings
   description: Build the package and error on warnings.
@@ -26,6 +29,7 @@
   language: system
   types: [rust]
   pass_filenames: false
+  stages: [push]
 - id: clippy
   name: clippy
   description: Lint rust source files.
@@ -34,3 +38,20 @@
   args: ["--", "-D", "warnings"]
   types: [rust]
   pass_filenames: false
+  stages: [commit]
+- id: test
+  name: test
+  description: Run tests with cargo test.
+  entry: cargo test
+  language: system
+  types: [rust]
+  pass_filenames: false
+  stages: [push]
+- id: audit
+  name: audit
+  description: Audit dependencies for security vulnerabilities with cargo audit. Requires cargo-audit to be installed.
+  entry: cargo audit
+  language: system
+  types: [rust]
+  pass_filenames: false
+  stages: [push]
